@@ -24,10 +24,7 @@
 }
 
 .cell {
-  /* height: calc((80vh + 1px) / 8);
-  width: calc((80vh) / 8); */
   font-weight: 700;
-  font-size: 28px;
 }
 
 .black {
