@@ -15,19 +15,19 @@ const createCell = (num) =>
 const shift = (x, y) => [-10 * x - y, -10 * x + y, 10 * x - y, 10 * x + y, 
           -10 * y - x, -10 * y + x, 10 * y - x, 10 * y + x]
 
-const stepHorse = (num) => shift(2, 1).map(index => index + num)
+const stepKnight = (num) => shift(2, 1).map(index => index + num)
 
 function App() {
 
   const [green, setGreen] = React.useState('');
-  const [horse, setHorse] = React.useState([])
+  const [knight, setKnight] = React.useState([])
   const fieldWidth = 320;
   const cell = 8;
 
   const handleClick = e => {
     let target = e.target.getAttribute('target');
     setGreen(target)
-    setHorse(stepHorse(+target))
+    setKnight(stepKnight(+target))
   }
 
   const context = createCell(cell).map( (index, i) => 
@@ -37,13 +37,13 @@ function App() {
       className={index.target === green ? 
         "cell green " + index.color :
         "cell " + index.color  }>
-        {horse.includes(+index.target) ? 'h' : ''}
+        {knight.includes(+index.target) ? 'h' : ''}
     </div>) 
 
   return (
     <main className="App">
       <div className="App-header">
-       <h1>Chess</h1>
+       <h1>Move of the knight</h1>
        <div className="field" onClick={handleClick}>
         {context} 
        </div>
